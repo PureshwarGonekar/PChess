@@ -1,0 +1,39 @@
+.side-bar{
+    width: 14%;
+    color: white;
+    padding: 6px;
+}
+.line {
+    background-color: white;
+    color: white;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.menu a:hover {
+  background-color: rgb(92, 92, 249);
+}
+.menulogo{
+    height: 25px;
+    width: 25px;
+    margin-left: 5px;
+    margin-right: 22%;
+    text-align: center;
+    justify-content: center;
+}

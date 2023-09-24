@@ -1,0 +1,86 @@
+.themeContainer{
+    width: 80% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont{
+    display: flex;  
+    
+}
+
+.slider{
+    text-align: center;
+    margin-top: 10px;
+    /* border: 2px solid purple; */
+    height: 60%;
+    width: 500px;
+}
+.slider h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    background-color:aquamarine;
+}
+
+/* MultiSlider Corousel */
+.choosetheme{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5%;
+    /* border: 2px solid purple; */
+    width: 80%;
+}
+
+.choosetheme h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    padding: 0 1%;
+    /* border-radius: 5px; */
+    background-color:aquamarine;
+}
+.parent{
+  margin-left: 10%;
+  color: black;
+  display: flex;
+  /* justify-content: space-between; */
+}
+.multislider {
+    text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.multislider img, .themebtn {
+  width: 50%;
+  border-radius: 10px;
+}
+.multislider button {
+  background-color:aquamarine;
+  margin-top: 1%;
+  border-radius: 10px;
+}
+
+.multislider button:hover {
+  background-color:bisque;
+}
+.multislider button:active {
+  background-color:bisque;
+  transform: scale(0.98);
+}
+
+
+
+.react-multi-carousel-list {
+  padding: 0rem 0 2rem 0;
+}
+
+.custom-dot-list-style button {
+  border: none;
+  background: rgb(255, 68, 68);
+}
+.react-multi-carousel-dot.react-multi-carousel-dot--active button {
+  background: rgb(255, 68, 68) !important;
+}

@@ -1,0 +1,56 @@
+{
+  "name": "chess-game",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.10",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^5.3.2",
+    "chess.js": "^0.10.3",
+    "konva": "6.0.0",
+    "react": "^16.13.1",
+    "react-bootstrap": "^2.8.0",
+    "react-dom": "^16.13.1",
+    "react-konva": "^16.13.0-3",
+    "react-multi-carousel": "^2.8.4",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "react-slideshow-image": "^4.2.1",
+    "react-uuid": "^2.0.0",
+    "simple-peer": "^9.7.2",
+    "socket.io-client": "2.3.0",
+    "styled-components": "^5.1.1",
+    "use-image": "^1.0.5",
+    "use-sound": "^1.0.2",
+    "uuid": "^7.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}

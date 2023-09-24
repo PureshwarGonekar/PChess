@@ -1,0 +1,79 @@
+
+
+.rightmain{
+    /* margin-top: 2%; */
+    margin-left: 10% ;
+    margin-right: 5% ;
+    display: flex;
+}
+
+
+
+.border{
+background: linear-gradient(38deg, rgb(147, 206, 235) 0%, rgb(220, 193, 225) 100%);   /* width | style | color */
+    border: medium solid green;
+}
+
+.border2{
+    margin: 0;
+    background-color: #232629;
+   /* width | style | color */
+    /* border: medium solid green; */
+}
+
+.mainlogo{
+    height: 80px;
+    width: 150px;
+}
+
+
+
+
+.menu a.active {
+  background-color: rgb(161, 161, 249); /* Apply a different style for the selected menu item */
+  color: white; /* Text color for the selected menu item */
+}
+
+
+
+.chessOsmImg{
+    margin-top: 30%;
+    border-radius: 8px;
+    transform: scale(1.3);
+
+}
+.title{
+    margin: 5% 10%;
+    width: 100%;
+}
+.hometitle{
+    font-family:Arial, Helvetica, sans-serif ;
+    font-weight: 1000;
+    font-size: 350%;
+}
+
+.bigbtn{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(1,21,29,1) 0%, rgba(18,1,36,1) 50%);
+    box-shadow: 10px 8px 28px 8px rgba(24, 0, 56, 0.24);
+    height: 17%;
+    width:  100%;
+}
+.bigbtn:active {
+            transform: scale(0.98);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
+.bigbtn:hover{
+    background: linear-gradient(90deg, rgb(1, 32, 45) 0%, rgb(33, 2, 65) 50%);
+}
+.icon_size2{
+    height: 50px;
+    width: 50px;
+    margin: 15px;
+}

@@ -1,0 +1,74 @@
+.Play_screen {
+  /* border: 4px solid red; */
+  width: 86%; 
+  height: 100%;
+  background-image: url("../img/chessbg2.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.Play_container {
+  /* border: 4px solid red; */
+  background-color: rgba(0,0,0, 0.4);
+  z-index: 2;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  --color: hsl(var(--primary-dark-hsl), .7);
+  background-color: var(--color);
+  box-shadow: 0 0 15px 0 var(--color);
+  padding: 40px 30px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 20px;
+  backdrop-filter: blur(2px);
+}
+
+.Play_container input{
+    margin-top: 2rem;
+    border-radius: 5px;
+    width: 50%;
+    height: 2.5rem;
+    border: none;
+    padding-inline: 1.5rem;
+    font-weight: bold;
+}
+
+.Play_container button{
+    margin-top: 2rem;
+    border-radius: 5px;
+    width: 25%;
+    height: 2.5rem;
+    border: none;
+}
+
+.Play_container button:active{
+    transform: scale(0.9);
+}
+
+.start_the_game{
+  width:86vw; 
+  height: 100%;
+  /* border: 4px solid red; */
+  background-image: url("../img/start.jpg");
+   background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.startbtn{
+  font-size: xx-large;
+}
+.startbtn:active{
+  transform: scale(0.9);
+}
