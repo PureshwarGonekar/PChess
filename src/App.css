@@ -338,15 +338,16 @@
 .toggle-camera{
     display: flex;
     position: fixed;
-    right: 0px; bottom: 155px;
+    right: 10px; bottom: 155px;
     border: none;
+    border-radius: 5px;
     outline: none;
     background-color:rgb(252, 248, 207);
-    padding: 5px;
+    padding-inline: 15px;
     align-items: center;
 }
 .toggle-camera img{
-    height : 25px;
+    height : 35px;
     width: auto;
     margin-right: 5px;
 }
@@ -363,4 +364,7 @@
 .toggle-camera:active{
     outline: none;
     transform: scale(0.9);
+}
+.toggle-camera:focus{
+    outline: none;
 }

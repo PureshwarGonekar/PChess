@@ -228,12 +228,7 @@ class ChessGame extends React.Component {
     render() {
         const { gameOver, winner } = this.state;
         // console.log(this.state.gameState.getBoard())
-       //  console.log("it's white's move this time: " + this.state.playerTurnToMoveIsWhite)
-        /*
-            Look at the current game state in the model and populate the UI accordingly
-        */
-        // console.log(this.state.gameState.getBoard())
-        
+       //  console.log("it's white's move this time: " + this.state.playerTurnToMoveIsWhite)        
         return (
         <React.Fragment>
         <div className='border1' style = {{
@@ -391,6 +386,8 @@ const ChessGameWrapper = (props) => {
         socket.on('rematchDeclined', () => {
             console.log('Rematch declined.');
             setRestartingGame(false);
+            setShowRematchNotification(false);
+            // chessGameRef.current.requestRematch();
 
         });
     }, [])
@@ -411,11 +408,11 @@ const ChessGameWrapper = (props) => {
     const handleRematchDeclined = () => {
         socket.emit('rematchDeclined', gameid);
         setRestartingGame(false);
+        setShowRematchNotification(false);      
     };
 
-    const restartGame = () => {
-        console.log('Restarting the game...');
-        // Implement your game restart logic here.
+    const closeDialog = () => {
+        setShowDialog(false);
     };
     
 
@@ -432,6 +429,7 @@ const ChessGameWrapper = (props) => {
                     themeUrl={chessboardThemes[color.selectedTheme]} 
                     showDialog={showDialog}
                     handleDialog={handleDialog}
+                    closeDialog={closeDialog}
                     restartingGame={restartingGame}
                     ref={chessGameRef}
                 />
