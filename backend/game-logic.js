@@ -9,7 +9,7 @@ var gameSocket
 // gamesInSession stores an array of all active socket connections
 var gamesInSession = []
 
-
+// parameter--> io client
 const initializeGame = (sio, socket) => {
     /**
      * initializeGame sets up all the socket event listeners. 
@@ -40,6 +40,30 @@ const initializeGame = (sio, socket) => {
 
     // register event listeners for video chat app:
     videoChatBackend()
+
+    // Handle rematch requests here
+    socket.on('rematchRequest', (gameId) => {
+        // Broadcast the rematch request to the opponent
+        socket.broadcast.to(gameId).emit('rematchRequest', gameId);
+    });
+
+    // Handle rematch acceptances here
+    socket.on('rematchAccepted', (gameId) => {
+        // Broadcast the rematch acceptance to the opponent
+        socket.broadcast.to(gameId).emit('rematchAccepted');
+    });
+
+    // Handle rematch declines here
+    socket.on('rematchDeclined', (gameId) => {
+        // Broadcast the rematch decline to the opponent
+        socket.broadcast.to(gameId).emit('rematchDeclined');
+    });
+
+    socket.on("endCall", ({ to }) => {
+        socket.broadcast.to(to).emit("endCall");
+        
+    });
+    
 }
 
 

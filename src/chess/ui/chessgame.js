@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import Game from '../model/chess'
 import Square from '../model/square'
@@ -36,11 +36,9 @@ class ChessGame extends React.Component {
         playerTurnToMoveIsWhite: true,
         whiteKingInCheck: false, 
         blackKingInCheck: false, 
-        Board : this.props.themeUrl,
         gameOver: false,
         winner: null,
-        showDialog: false,
-        
+        requestingRematch: false,
     }
 
 
@@ -127,13 +125,14 @@ class ChessGame extends React.Component {
         })
 
         if (blackCheckmated) {
-            this.setState({ gameOver: true, winner: 'white', showDialog: true });
+            this.setState({ gameOver: true, winner: 'white'});
+            this.props.handleDialog(true);
         } else if (whiteCheckmated) {
-            this.setState({ gameOver: true, winner: 'black', showDialog: true });
+            this.setState({ gameOver: true, winner: 'black'});
+            this.props.handleDialog(true);
         }
     }
 
-    //play again chess part
     resetGame = () => {
         this.setState({
             gameOver: false,
@@ -142,13 +141,20 @@ class ChessGame extends React.Component {
             playerTurnToMoveIsWhite: true,
             whiteKingInCheck: false,
             blackKingInCheck: false,
+            gameOver: false,
+            winner: null,
+            requestingRematch: false,
         });
     };
 
-    closeDialog = () => {
-        this.setState({ showDialog: false });
-    };
     
+    
+    requestRematch = () => {
+        // Send a rematch request to the opponent.
+        console.log("Rematch req sent to opponent");
+        socket.emit('rematchRequest', this.props.gameId);
+        this.setState({ requestingRematch: true });
+    };
 
 
     endDragging = (e) => {
@@ -220,7 +226,7 @@ class ChessGame extends React.Component {
     
 
     render() {
-        const { showDialog, gameOver, winner } = this.state;
+        const { gameOver, winner } = this.state;
         // console.log(this.state.gameState.getBoard())
        //  console.log("it's white's move this time: " + this.state.playerTurnToMoveIsWhite)
         /*
@@ -269,7 +275,7 @@ class ChessGame extends React.Component {
                 </Layer>
             </Stage>
         </div>
-        {showDialog && (
+        {this.props.showDialog && (
             <div className="game-over-dialog">
                 {winner === 'white' ? (
                     <div>WHITE WON BY CHECKMATE!</div>
@@ -277,8 +283,10 @@ class ChessGame extends React.Component {
                     <div>BLACK WON BY CHECKMATE!</div>
                 )}
 
-                <button onClick={this.playAgainHandler}>Play Again</button>
-                <button onClick={this.closeDialog}>Cancel</button>
+                <button onClick={this.requestRematch} disabled={this.state.requestingRematch}>
+                    {this.state.requestingRematch ? 'Requesting Rematch...' : 'Play Again'}
+                </button>
+                <button onClick={this.props.closeDialog}>Cancel</button>
             </div>
         )}
         </React.Fragment>)
@@ -309,8 +317,13 @@ const ChessGameWrapper = (props) => {
     const [opponentUserName, setUserName] = React.useState('')
     const [gameSessionDoesNotExist, doesntExist] = React.useState(false)
 
+    const [showRematchNotification, setShowRematchNotification] = React.useState(false);
+    const [restartingGame, setRestartingGame] = React.useState(false);
+    const [showDialog, setShowDialog] = React.useState(false);
+
     // console.log(chessboardThemes[color.selectedTheme]);
     const history = useHistory()
+    const chessGameRef = useRef();
 
     React.useEffect(() => {
         Board1 = chessboardThemes[color.selectedTheme] ;
@@ -358,8 +371,53 @@ const ChessGameWrapper = (props) => {
                 setOpponentSocketId(data.socketId)
                 didJoinGame(true) 
             }
-        })        
+        })      
+
+        socket.on('rematchRequest', (gameId) => {
+            console.log("Rematch req sent to received");
+            setShowRematchNotification(true);
+        });  
+
+        //opponent reset their states
+        socket.on('rematchAccepted', () => {
+            console.log('Rematch accepted.');
+            setRestartingGame(true);
+            setRestartingGame(true);
+            setShowDialog(false);
+            chessGameRef.current.resetGame();
+            setRestartingGame(false);
+        });
+
+        socket.on('rematchDeclined', () => {
+            console.log('Rematch declined.');
+            setRestartingGame(false);
+
+        });
     }, [])
+    const handleDialog = (val) => {
+        setShowDialog(val);
+    };
+
+    //user reset their states
+    const handleRematchAccepted = () => {
+        socket.emit('rematchAccepted', gameid); 
+        setRestartingGame(true);
+        setShowRematchNotification(false);      
+        setShowDialog(false);
+        chessGameRef.current.resetGame();
+        setRestartingGame(false);
+    };
+
+    const handleRematchDeclined = () => {
+        socket.emit('rematchDeclined', gameid);
+        setRestartingGame(false);
+    };
+
+    const restartGame = () => {
+        console.log('Restarting the game...');
+        // Implement your game restart logic here.
+    };
+    
 
     return (
       <React.Fragment>
@@ -372,14 +430,25 @@ const ChessGameWrapper = (props) => {
                     gameId={gameid}
                     color={color.didRedirect}
                     themeUrl={chessboardThemes[color.selectedTheme]} 
+                    showDialog={showDialog}
+                    handleDialog={handleDialog}
+                    restartingGame={restartingGame}
+                    ref={chessGameRef}
                 />
                 <h4 className='player'> You: <strong>{props.myUserName} </strong> </h4>
             </div>
+            
+
+            
             <VideoChatApp
                 mySocketId={socket.id}
                 opponentSocketId={opponentSocketId}
                 myUserName={props.myUserName}
                 opponentUserName={opponentUserName}
+                showRematchNotification={showRematchNotification}
+                handleRematchAccepted={handleRematchAccepted}
+                handleRematchDeclined={handleRematchDeclined}
+                restartingGame={restartingGame}
             />
           </div>
         ) : gameSessionDoesNotExist ? (

@@ -183,7 +183,7 @@
     margin: 20px;
 }
 .notification:hover{
-  background-color: rgba(28, 4, 59, 0.5);
+  background-color: #3a4562;
   transition:0.5s;
 }
 .notification img{
@@ -298,5 +298,69 @@
     background-color: #555;
 }
 .game-over-dialog button:active{
+    transform: scale(0.9);
+}
+
+.hangup{
+    display: flex;
+    height:fit-content;
+    margin-top: 6px;
+    border:none;
+    outline: none;
+    border-radius: 5%;
+    margin-top: 5px;
+    padding-inline: 10px;
+    background-color: rgb(252, 248, 207);
+    align-items: center;
+}
+.hangup img{
+    height : 25px;
+    width: auto;
+    margin-right: 5px;
+}
+.hangup p{
+    margin-top: 10px;
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+}
+.hangup:hover{
+    background-color: rgb(237, 237, 204);
+}
+.hangup:active{
+    outline: none;
+    transform: scale(0.9);
+}
+
+
+/* Toggle camera */
+
+.toggle-camera{
+    display: flex;
+    position: fixed;
+    right: 0px; bottom: 155px;
+    border: none;
+    outline: none;
+    background-color:rgb(252, 248, 207);
+    padding: 5px;
+    align-items: center;
+}
+.toggle-camera img{
+    height : 25px;
+    width: auto;
+    margin-right: 5px;
+}
+.toggle-camera p{
+    margin-top: 10px;
+    color: black;
+    font-size:medium;
+}
+
+.toggle-camera:hover{
+    background-color: rgb(237, 237, 204);
+    outline: none;
+}
+.toggle-camera:active{
+    outline: none;
     transform: scale(0.9);
 }
