@@ -60,6 +60,12 @@
   justify-content: center;
   align-items: center;
 }
+.blocky{
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .flexy textarea{
     resize: none;
@@ -71,7 +77,7 @@
 
 .greeting{
     font-size: x-large;
-    margin: 5%;
+    margin: 2%;
     align-items: center;
     font-weight: 300;
 }
@@ -99,7 +105,10 @@
 }
 .socials button:active{
     border: none;
-    transform: scale(1.1);
+    transform: scale(0.9);
+}
+.socials button:focus{
+    outline: none;
 }
 
 .wait{
@@ -118,6 +127,10 @@
     background-color: rgb(136, 255, 255);
 }
 
+.cancelbtn:active{
+    transform: scale(0.9);
+}
+
 /* Chess board */
 .player{
     width: fit-content;
@@ -131,4 +144,159 @@
     text-transform: capitalize;
     color: rgb(53, 5, 87);
     font-weight: 600;
+}
+
+.border1{
+    border: 2px solid black;
+}
+
+
+/* videochat */
+.videochat_bar{
+    /* border: 2px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+.bottomright {
+  position: fixed;
+  right: 0px; bottom: 0px;
+  width: 200px;
+  height: 150px;
+  background-color:lightblue;
+  padding: 1px;
+}
+
+.notification{
+    font-size: medium;
+    border-radius: 5px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #2B3246;
+    box-shadow:  9px 9px 18px #b9b9b9;
+    color: rgb(7, 126, 5);
+    margin: 20px;
+}
+.notification:hover{
+  background-color: rgba(28, 4, 59, 0.5);
+  transition:0.5s;
+}
+.notification img{
+    height :  25px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+ 0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(-45deg);
+  }
+}
+
+
+.answer{
+    background-color: rgb(192, 248, 192);
+    border-radius: 5px;
+    border:none;
+    margin-inline: 10px;
+
+}
+
+.answer:hover{
+    background-color: rgb(152, 247, 152);
+    
+}
+.answer:active{
+    background-color: rgb(152, 247, 152);
+    transform: scale(0.9);
+}
+
+.reject{
+    background-color: rgb(251, 181, 181);
+    border-radius: 5px;
+    border:none;
+    margin-inline: 10px;
+}
+.reject:hover{
+    background-color: rgb(235, 106, 106);
+}
+.reject:active{
+    background-color: rgb(235, 106, 106);
+    transform: scale(0.9);
+}
+
+.chessgame{
+    width: 86%;
+    display: flex;
+    justify-content: end;
+    margin-left: -5%;
+    /* border: 2px solid green; */
+}
+
+.heading{
+    width: fit-content;
+    border-radius: 5px;
+    padding: 1%;
+    font-size: x-large;
+    font-weight: 800;
+}
+
+.mainview{
+    width: 100%;
+}
+
+.imptext{
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+/* Dialoag box  in chessgame.js*/
+.game-over-dialog {
+    border-radius: 5px;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #333;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.game-over-dialog button {
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.game-over-dialog button:hover {
+    background-color: #555;
+}
+.game-over-dialog button:active{
+    transform: scale(0.9);
 }

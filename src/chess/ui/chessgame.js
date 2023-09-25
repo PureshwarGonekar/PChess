@@ -17,6 +17,8 @@ import ShareButtons from '../../pages/SocialButtons';
 import logogif from "../../img/pchess.gif";
 import queengirl from "../../img/queengirl.jpg";
 
+const scaleFactor = 0.9;
+
 const chessboardThemes ={
     default : ChessBoard1,
     theme1: ChessBoard2,
@@ -35,15 +37,14 @@ class ChessGame extends React.Component {
         whiteKingInCheck: false, 
         blackKingInCheck: false, 
         Board : this.props.themeUrl,
+        gameOver: false,
+        winner: null,
+        showDialog: false,
+        
     }
 
 
     componentDidMount() {
-        console.log("chessgame.js line28");
-        console.log(this.props.myUserName)
-        console.log(this.props.opponentUserName)
-        console.log(Board1);
-        // register event listeners
         socket.on('opponent move', move => {
             // move == [pieceId, finalPosition]
             // console.log("opponenet's move: " + move.selectedId + ", " + move.finalPosition)
@@ -54,6 +55,8 @@ class ChessGame extends React.Component {
                 })
             }
         })
+
+        
     }
 
     startDragging = (e) => {
@@ -124,11 +127,28 @@ class ChessGame extends React.Component {
         })
 
         if (blackCheckmated) {
-            alert("WHITE WON BY CHECKMATE!")
+            this.setState({ gameOver: true, winner: 'white', showDialog: true });
         } else if (whiteCheckmated) {
-            alert("BLACK WON BY CHECKMATE!")
+            this.setState({ gameOver: true, winner: 'black', showDialog: true });
         }
     }
+
+    //play again chess part
+    resetGame = () => {
+        this.setState({
+            gameOver: false,
+            winner: null,
+            gameState: new Game(this.props.color),
+            playerTurnToMoveIsWhite: true,
+            whiteKingInCheck: false,
+            blackKingInCheck: false,
+        });
+    };
+
+    closeDialog = () => {
+        this.setState({ showDialog: false });
+    };
+    
 
 
     endDragging = (e) => {
@@ -184,6 +204,7 @@ class ChessGame extends React.Component {
             for (var j = 0; j < 8; j++) {
                 const canvasCoord = chessBoard[i][j].getCanvasCoord()
                 // calculate distance
+                // console.log(canvasCoord);
                 const delta_x = canvasCoord[0] - x 
                 const delta_y = canvasCoord[1] - y
                 const newDistance = Math.sqrt(delta_x**2 + delta_y**2)
@@ -196,8 +217,10 @@ class ChessGame extends React.Component {
 
         return hashmap[shortestDistance]
     }
-   
+    
+
     render() {
+        const { showDialog, gameOver, winner } = this.state;
         // console.log(this.state.gameState.getBoard())
        //  console.log("it's white's move this time: " + this.state.playerTurnToMoveIsWhite)
         /*
@@ -207,42 +230,57 @@ class ChessGame extends React.Component {
         
         return (
         <React.Fragment>
-        <div style = {{
+        <div className='border1' style = {{
             backgroundImage: `url(${Board1})`,
-            width: "720px",
-            height: "720px",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            transform: `scaleX(${scaleFactor})`,
+            transform: `scaleY(${scaleFactor})`,
+            marginBlock: "-10px",
             }}
         >
-            <Stage width = {720} height = {720}>
+            <Stage width={720 * scaleFactor} height={720 * scaleFactor} scale={{ x: scaleFactor, y: scaleFactor }}>
                 <Layer>
                 {this.state.gameState.getBoard().map((row) => {
-                        return (<React.Fragment>
-                                {row.map((square,ind) => {
-                                    if (square.isOccupied()) {                                    
-                                        return (
-                                            <Piece
-                                                key= {ind} 
-                                                x = {square.getCanvasCoord()[0]}
-                                                y = {square.getCanvasCoord()[1]} 
-                                                imgurls = {piecemap[square.getPiece().name]}
-                                                isWhite = {square.getPiece().color === "white"}
-                                                draggedPieceTargetId = {this.state.draggedPieceTargetId}
-                                                onDragStart = {this.startDragging}
-                                                onDragEnd = {this.endDragging}
-                                                id = {square.getPieceIdOnThisSquare()}
-                                                thisPlayersColorIsWhite = {this.props.color}
-                                                playerTurnToMoveIsWhite = {this.state.playerTurnToMoveIsWhite}
-                                                whiteKingInCheck = {this.state.whiteKingInCheck}
-                                                blackKingInCheck = {this.state.blackKingInCheck}
-                                                />)
-                                    }
-                                    return
-                                })}
+                    return (<React.Fragment>
+                    {row.map((square,ind) => {
+                        if (square.isOccupied()) {                                    
+                            return (
+                            <Piece
+                                key= {ind} 
+                                x = {square.getCanvasCoord()[0]}
+                                y = {square.getCanvasCoord()[1]} 
+                                imgurls = {piecemap[square.getPiece().name]}
+                                isWhite = {square.getPiece().color === "white"}
+                                draggedPieceTargetId = {this.state.draggedPieceTargetId}
+                                onDragStart = {this.startDragging}
+                                onDragEnd = {this.endDragging}
+                                id = {square.getPieceIdOnThisSquare()}
+                                thisPlayersColorIsWhite = {this.props.color}
+                                playerTurnToMoveIsWhite = {this.state.playerTurnToMoveIsWhite}
+                                whiteKingInCheck = {this.state.whiteKingInCheck}
+                                blackKingInCheck = {this.state.blackKingInCheck}
+                                />)
+                        }
+                        return
+                        })}
                             </React.Fragment>)
                     })}
                 </Layer>
             </Stage>
         </div>
+        {showDialog && (
+            <div className="game-over-dialog">
+                {winner === 'white' ? (
+                    <div>WHITE WON BY CHECKMATE!</div>
+                ) : (
+                    <div>BLACK WON BY CHECKMATE!</div>
+                )}
+
+                <button onClick={this.playAgainHandler}>Play Again</button>
+                <button onClick={this.closeDialog}>Cancel</button>
+            </div>
+        )}
         </React.Fragment>)
     }
 }
@@ -320,30 +358,29 @@ const ChessGameWrapper = (props) => {
                 setOpponentSocketId(data.socketId)
                 didJoinGame(true) 
             }
-        })
+        })        
     }, [])
-
 
     return (
       <React.Fragment>
         {opponentDidJoinTheGame ? (
-          <div>
-            <h4 className='player'> Opponent: <strong>{opponentUserName} </strong> </h4>
-            <div style={{ display: "flex" }}>
-              <ChessGame
-                playAudio={play}
-                gameId={gameid}
-                color={color.didRedirect}
-                themeUrl={chessboardThemes[color.selectedTheme]} 
-              />
-              <VideoChatApp
+          <div className='chessgame'>
+            <div style={{ marginRight: "50px" }}>
+                <h4 className='player'> Opponent: <strong>{opponentUserName} </strong> </h4>
+                <ChessGame
+                    playAudio={play}
+                    gameId={gameid}
+                    color={color.didRedirect}
+                    themeUrl={chessboardThemes[color.selectedTheme]} 
+                />
+                <h4 className='player'> You: <strong>{props.myUserName} </strong> </h4>
+            </div>
+            <VideoChatApp
                 mySocketId={socket.id}
                 opponentSocketId={opponentSocketId}
                 myUserName={props.myUserName}
                 opponentUserName={opponentUserName}
-              />
-            </div>
-            <h4 className='player'> You: <strong>{props.myUserName} </strong> </h4>
+            />
           </div>
         ) : gameSessionDoesNotExist ? (
           <div>
