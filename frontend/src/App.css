@@ -1,0 +1,385 @@
+.main{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.game_screen {
+  /* border: 4px solid blue; */
+  width: 86%; 
+  height: 100%;
+  /* background-image: url("./img/chesspawnsedit.jpg");
+  background-size: cover;
+  background-position: center; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+
+}
+.join_screen{
+    width: 80%;
+    /* border: 2px solid green; */
+    display: flex;
+    align-items: center;
+}
+.queengirl{
+    /* border: 2px solid green; */
+    margin-left: -20%;
+    display: flex;
+    align-items: center;
+}
+.queengirl img{
+    height: 350px ;
+    width: 300px ;
+}
+
+.welcome{
+    /* margin-left: 170px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.welcome img{
+    height: 200px ;
+    width: 400px ;
+    
+}
+.welcome h1{
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bolder;
+   
+}
+
+.flexy{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blocky{
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexy textarea{
+    resize: none;
+    margin-left: 20px;
+    margin-top: -14px;
+    width: 500px;
+    height: 30px;
+}
+
+.greeting{
+    font-size: x-large;
+    margin: 2%;
+    align-items: center;
+    font-weight: 300;
+}
+.greeting strong{
+    font-weight: 600;
+    text-transform: capitalize;
+    color: rgb(53, 5, 87);
+}
+
+/* Social media links */
+.socials{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socials button img{
+    height :  40px;
+    width: auto;
+}
+
+.socials button{
+    background-color: white;
+    border: none;
+}
+.socials button:active{
+    border: none;
+    transform: scale(0.9);
+}
+.socials button:focus{
+    outline: none;
+}
+
+.wait{
+    margin-top: 4%;
+    font-weight: 100;
+    font-size: medium;
+}
+
+.cancelbtn{
+    border-radius: 5px;
+    background-color: rgb(186, 251, 251);
+    align-items: center;
+}
+
+.cancelbtn:hover{
+    background-color: rgb(136, 255, 255);
+}
+
+.cancelbtn:active{
+    transform: scale(0.9);
+}
+
+/* Chess board */
+.player{
+    width: fit-content;
+    border-radius: 5px;
+    padding: 1%;
+    background-color: rgb(140, 239, 241);
+    font-size: x-large;
+    font-weight: 800;
+}
+.player strong{
+    text-transform: capitalize;
+    color: rgb(53, 5, 87);
+    font-weight: 600;
+}
+
+.border1{
+    border: 2px solid black;
+}
+
+
+/* videochat */
+.videochat_bar{
+    /* border: 2px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+.bottomright {
+  position: fixed;
+  right: 0px; bottom: 0px;
+  width: 200px;
+  height: 150px;
+  background-color:lightblue;
+  padding: 1px;
+}
+
+.notification{
+    font-size: medium;
+    border-radius: 5px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #2B3246;
+    box-shadow:  9px 9px 18px #b9b9b9;
+    color: rgb(7, 126, 5);
+    margin: 20px;
+}
+.notification:hover{
+  background-color: #3a4562;
+  transition:0.5s;
+}
+.notification img{
+    height :  25px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+ 0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(-45deg);
+  }
+}
+
+
+.answer{
+    background-color: rgb(192, 248, 192);
+    border-radius: 5px;
+    border:none;
+    margin-inline: 10px;
+
+}
+
+.answer:hover{
+    background-color: rgb(152, 247, 152);
+    
+}
+.answer:active{
+    background-color: rgb(152, 247, 152);
+    transform: scale(0.9);
+}
+
+.reject{
+    background-color: rgb(251, 181, 181);
+    border-radius: 5px;
+    border:none;
+    margin-inline: 10px;
+}
+.reject:hover{
+    background-color: rgb(235, 106, 106);
+}
+.reject:active{
+    background-color: rgb(235, 106, 106);
+    transform: scale(0.9);
+}
+
+.chessgame{
+    width: 86%;
+    display: flex;
+    justify-content: end;
+    margin-left: -5%;
+    /* border: 2px solid green; */
+}
+
+.heading{
+    width: fit-content;
+    border-radius: 5px;
+    padding: 1%;
+    font-size: x-large;
+    font-weight: 800;
+}
+
+.mainview{
+    width: 100%;
+}
+
+.imptext{
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+/* Dialoag box  in chessgame.js*/
+.game-over-dialog {
+    border-radius: 5px;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #333;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.game-over-dialog button {
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.game-over-dialog button:hover {
+    background-color: #555;
+}
+.game-over-dialog button:active{
+    transform: scale(0.9);
+}
+
+.hangup{
+    display: flex;
+    height:fit-content;
+    margin-top: 6px;
+    border:none;
+    outline: none;
+    border-radius: 5%;
+    margin-top: 5px;
+    padding-inline: 10px;
+    background-color: rgb(252, 248, 207);
+    align-items: center;
+}
+.hangup img{
+    height : 25px;
+    width: auto;
+    margin-right: 5px;
+}
+.hangup p{
+    margin-top: 10px;
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+}
+.hangup:hover{
+    background-color: rgb(237, 237, 204);
+}
+.hangup:active{
+    outline: none;
+    transform: scale(0.9);
+}
+
+
+/* Toggle camera */
+
+.toggle-camera{
+    display: flex;
+    position: fixed;
+    right: 10px; bottom: 155px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color:rgb(252, 248, 207);
+    padding-inline: 15px;
+    align-items: center;
+}
+.toggle-camera img{
+    height : 35px;
+    width: auto;
+    margin-right: 5px;
+}
+.toggle-camera p{
+    margin-top: 10px;
+    color: black;
+    font-size:medium;
+}
+
+.toggle-camera:hover{
+    background-color: rgb(237, 237, 204);
+    outline: none;
+}
+.toggle-camera:active{
+    outline: none;
+    transform: scale(0.9);
+}
+.toggle-camera:focus{
+    outline: none;
+}
+
+.abort-button{
+    border-radius: 0px;
+    height : 35px;
+    padding:10px;
+    background-color: red;
+    right: 0px; top: 0px;
+}
+.abort-button:hover{
+    background-color: rgb(176, 3, 3);
+}
+.abort-button:active{
+    outline: none;
+    transform: scale(1);
+}
