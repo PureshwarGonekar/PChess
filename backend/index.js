@@ -3,6 +3,7 @@ const http = require('http')
 const socketio = require('socket.io')
 const gameLogic = require('./game-logic')
 const app = express()
+const port = process.env.PORT || 8000;
 
 /**
  * Backend flow:
@@ -24,14 +25,14 @@ const io = socketio(server)
 // run when client connects
 app.get('/', (req, res) => {
     // You can send a simple response like this:
-    res.status(200).send('Welcome to the game!')
+    res.status(200).send('Welcome to the game of Chess!')
 });
 
 io.on('connection', client => {
     gameLogic.initializeGame(io, client)
 })
 
-const port = process.env.PORT || 8000;
+
 // usually this is where we try to connect to our DB. 
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
