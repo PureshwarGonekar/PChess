@@ -1,7 +1,6 @@
 import io from 'socket.io-client'
 
-const URL = 'http://localhost:8000'
-
+URL = process.env.BACKEND_URL || 'https://stone-lime-vise.glitch.me/'
 const socket = io(URL)
 
 var mySocketId

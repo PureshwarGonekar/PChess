@@ -72,3 +72,15 @@
 .startbtn:active{
   transform: scale(0.9);
 }
+
+.formMargin{
+  margin-right: 5%;
+}
+
+.righty{
+  position: relative;
+  left: 10%;
+}
+.width100{
+  width: 100%;
+}

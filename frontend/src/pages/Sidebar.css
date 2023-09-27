@@ -37,3 +37,22 @@
     text-align: center;
     justify-content: center;
 }
+
+.footer{
+  /* border: 2px solid red; */
+  
+  position: relative;
+  font-size: small;
+  color: black;
+  
+}
+
+
+.footer p strong {
+  color: rgb(6, 1, 31);
+}
+
+.footer p strong:hover {
+  color: white;
+  cursor: pointer;
+}

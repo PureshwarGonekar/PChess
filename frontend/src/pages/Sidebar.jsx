@@ -7,8 +7,8 @@ const Sidebar = ({ selectedMenuItem, handleMenuItemClick }) => {
   return (
     <div className="side-bar border2 ">
       <div>
-        <img className="mainlogo" src={require("../img/pchess.png")} />
-        <hr className="line" />
+        <img className="mainlogo" src={require("../img/pchess.png")} alt='icon' />
+        <hr className="line"  />
       </div>
       <ul className="menu">
         <li>
@@ -17,7 +17,7 @@ const Sidebar = ({ selectedMenuItem, handleMenuItemClick }) => {
             onClick={() => handleMenuItemClick("Home")} // Set the selected menu item to 'Home' when clicked
             className={selectedMenuItem === "Home" ? "active" : ""} // Apply 'active' class for the selected menu item
           >
-            <img className="menulogo" src={require("../img/home.png")} />
+            <img className="menulogo" src={require("../img/home.png")} alt='icon' />
             Home
           </Link>
         </li>
@@ -27,8 +27,18 @@ const Sidebar = ({ selectedMenuItem, handleMenuItemClick }) => {
             onClick={() => handleMenuItemClick("Play")}
             className={selectedMenuItem === "Play" ? "active" : ""}
           >
-            <img className="menulogo" src={require("../img/pawn.png")} />
+            <img className="menulogo" src={require("../img/pawn.png")} alt='icon' />
             Play
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/join"
+            onClick={() => handleMenuItemClick("Join")}
+            className={selectedMenuItem === "Join" ? "active" : ""}
+          >
+            <img className="menulogo" src={require("../img/creategame.png")} alt='icon' />
+            Join Match
           </Link>
         </li>
         <li>
@@ -37,8 +47,18 @@ const Sidebar = ({ selectedMenuItem, handleMenuItemClick }) => {
             onClick={() => handleMenuItemClick("Theme")}
             className={selectedMenuItem === "Theme" ? "active" : ""}
           >
-            <img className="menulogo" src={require("../img/theme.png")} />
+            <img className="menulogo" src={require("../img/theme.png")} alt='icon' />
             Theme
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/players"
+            onClick={() => handleMenuItemClick("Players")}
+            className={selectedMenuItem === "Players" ? "active" : ""}
+          >
+            <img className="menulogo" src={require("../img/players.png")} alt='icon' />
+            Players
           </Link>
         </li>
         <li>
@@ -47,7 +67,7 @@ const Sidebar = ({ selectedMenuItem, handleMenuItemClick }) => {
             onClick={() => handleMenuItemClick("Blog")}
             className={selectedMenuItem === "Blog" ? "active" : ""}
           >
-            <img className="menulogo" src={require("../img/blog.png")} />
+            <img className="menulogo" src={require("../img/blog.png")} alt='icon' />
             Blog
           </Link>
         </li>
@@ -57,7 +77,7 @@ const Sidebar = ({ selectedMenuItem, handleMenuItemClick }) => {
             onClick={() => handleMenuItemClick("Signup")}
             className={selectedMenuItem === "Signup" ? "active" : ""}
           >
-            <img className="menulogo" src={require("../img/signup.png")} />
+            <img className="menulogo" src={require("../img/signup.png")} alt='icon' />
             Signup
           </Link>
         </li>
@@ -67,11 +87,21 @@ const Sidebar = ({ selectedMenuItem, handleMenuItemClick }) => {
             onClick={() => handleMenuItemClick("Login")}
             className={selectedMenuItem === "Login" ? "active" : ""}
           >
-            <img className="menulogo" src={require("../img/login.png")} />
+            <img className="menulogo" src={require("../img/login.png")} alt='icon' />
             Login
           </Link>
         </li>
       </ul>
+      <footer className='footer'>
+        <hr className="line"  />
+        <p>Developed by <br /> <strong>Pureshwar Gonekar </strong> </p>
+        <a href='https://github.com/PureshwarGonekar' target='_blank' >
+            <img className="menulogo" src={require("../img/github.png")} alt='github' />
+          </a>
+          <a href='https://www.linkedin.com/in/pureshwar-gonekar-358b661aa/' target='_blank' >
+            <img className="menulogo" src={require("../img/linkedin.png")} alt='linkedin' />
+          </a>
+      </footer>
     </div>
   );
 };

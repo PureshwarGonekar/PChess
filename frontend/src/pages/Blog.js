@@ -26,7 +26,7 @@ const Blog = () => {
             className="nav-link btn btn-dark text-white"
             href="#"
           >
-            👉 Hire Me
+            <span>👉</span> Hire Me
           </a>
         </nav>
       ))}

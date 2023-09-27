@@ -1,9 +1,9 @@
 const datas = [
   {
     name: 'data',
-    title: 'Chess Blog 🥳',
+    title: 'Chess Updates 🥳',
     description:
-      'New and Free template download themes website blog for react.',
+      'Spell Chess Opening Theory',
     intro: 'Read Documentation →',
     img: 'https://mesinkasironline.web.app/img/createwebsiteusingreact.png',
   },
@@ -12,21 +12,21 @@ const datas = [
 export const articles = [
   {
     name: 'about',
-    title: 'Making Game with React',
-    date: '22 Sept 2023',
+    title: 'Spell Chess Opening Theory',
+    date: '28 Feb 2023',
     desc: 'about cute blog for react js',
     author: 'Pureshwar',
     authorlink: 'https://www.linkedin.com/in/pureshwar-gonekar-358b661aa/',
     img: 'https://cdn.dribbble.com/users/77598/screenshots/5919494/dribbble.png',
     content: [
-      `React comes with everything you need to implement a basic game (Tic Tac Toe, Snake, simple Space Invaders). If you want to get started, try to dig into this little game project which uses only React to build a Snake game.`,
+      `In the last post, I recommended Black respond to 1.e4 with 1.Nc6. I now think 1.Nc6 doesn't work at all. By far the two most important first moves in chess are 1. e4 and 1. d4. With these moves, White occupies as much of the center as possible (a key component in opening principles).`,
     ],
   },
   {
     name: 'IQ',
     title: 'IQ of Magnus Carlsen',
     desc: 'Magnus Carlsen',
-    date: '20 april 2022',
+    date: '20 October 2023',
     author: 'Magnus Carlsen',
     authorlink: 'https://www.linkedin.com/in/pureshwar-gonekar-358b661aa/',
     img: 'https://media.istockphoto.com/vectors/business-communication-internet-blogging-post-flat-design-vector-vector-id1143088863?k=20&m=1143088863&s=612x612&w=0&h=kJgOoz9QAhbT83Acyhm9whRtxt2j7J7VzWAxCHuEa8o=',
@@ -37,16 +37,14 @@ I wouldn't want to know it anyway. It might turn out to be a nasty surprise.” 
   },
   {
     name: 'installation',
-    title: 'Install',
-    date: '20 april 2022',
+    title: 'What should an intermediate chess player learn?',
+    date: '20 april 2023',
     author: 'Hikaru Nakamura',
     authorlink: 'https://www.linkedin.com/in/pureshwar-gonekar-358b661aa/',
     img: 'https://thumbs.dreamstime.com/b/flat-design-business-process-workflow-management-communicating-ready-to-animation-characters-compouse-your-scenes-office-work-128992317.jpg',
-    desc: 'How to install cuteblog react ',
+    desc: 'IQ of Magnus Carlsen',
     content: [
-      `Oke now how to install this cuteblog  project ?? for first make sure you have installing node on your devices, or you can download and install node first, after this we need to download source code project and code editor too... so for code editor you can download visual code studio and install on your device.`,
-      `Oke after installation you need to download cuteblog react source code on or github repo, just github icon click button on navbar. or you can using git bash with run git clone https://github.com/mesinkasir/cuteblogreact.git `,
-      `Now extract all source code project and you need to install with run npm install && npm start , then open localhost:3000 , congratulation now you have success installing cuteblog for react on your devices. `,
+      `Space is dictated by pawn play in many ways, and "your space" is essentially all the squares you control behind your most advanced pawns (or pawns within the enemy's territory). Learning to correctly use space and "build strength" in your position is critical`,
     ],
   },
   {

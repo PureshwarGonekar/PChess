@@ -63,6 +63,11 @@ const initializeGame = (sio, socket) => {
         socket.broadcast.to(to).emit("endCall");
         
     });
+
+    socket.on("rejectCall", ({ to }) => {
+        // Emit a message to the player who initiated the call
+        io.to(to).emit("callRejected");
+    });
     
 }
 

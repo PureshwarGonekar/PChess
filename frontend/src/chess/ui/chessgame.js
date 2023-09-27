@@ -141,8 +141,6 @@ class ChessGame extends React.Component {
             playerTurnToMoveIsWhite: true,
             whiteKingInCheck: false,
             blackKingInCheck: false,
-            gameOver: false,
-            winner: null,
             requestingRematch: false,
         });
     };
@@ -303,7 +301,7 @@ const ChessGameWrapper = (props) => {
 
 
     // get the gameId from the URL here and pass it to the chessGame component as a prop. 
-    const domainName = 'http://localhost:3000'
+    const domainName = process.env.DOMAIN || 'https://pchess-pureshwar.vercel.app/'
     const color = React.useContext(ColorContext)
     const { gameid } = useParams()
     const [play] = useSound(chessMove);
@@ -451,11 +449,11 @@ const ChessGameWrapper = (props) => {
           </div>
         ) : gameSessionDoesNotExist ? (
           <div>
-            <Link to="/" style={{ textAlign: "center", marginTop: "200px" }}> :( Back to Home </Link>
+            <Link to="/" style={{ textAlign: "center", marginTop: "200px" }}> <button className='toggle-camera'> :( Back to Home </button></Link>
           </div>
         ) : (
           <>
-            <div className='queengirl'>
+            <div className='queengirl flexy'>
                 <img src={queengirl} alt="" />
                 <div className='welcome'>
                     <h1 >Welcome to PChess </h1>

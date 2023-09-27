@@ -6,14 +6,24 @@ import clipboard from '../img/clipboard.png';
 import copied from '../img/copied.png';
 
 const SocialButtons = ({ gameid }) => {
-  const domainName = 'http://localhost:3000';
+  const domainName = process.env.DOMAIN || "https://pchess-pureshwar.vercel.app";
   const [gameLinkCopied, setGameLinkCopied] = useState(false);
+  const [gameIdCopied, setGameIdCopied] = useState(false);
 
   const copyGameLinkToClipboard = () => {
     const gameLink = `${domainName}/game/${gameid}`;
     navigator.clipboard.writeText(gameLink)
       .then(() => {
         setGameLinkCopied(true);
+      })
+      .catch((error) => {
+        console.error('Failed to copy game link: ', error);
+      });
+  };
+  const copyGameIdToClipboard = () => {
+    navigator.clipboard.writeText(gameid)
+      .then(() => {
+        setGameIdCopied(true);
       })
       .catch((error) => {
         console.error('Failed to copy game link: ', error);
@@ -47,7 +57,11 @@ const SocialButtons = ({ gameid }) => {
       <button onClick={shareOnTelegram}><img src={tele} alt="" /></button>
       <button onClick={copyGameLinkToClipboard}>
       <img src={gameLinkCopied ? copied : clipboard} alt="" />
-        {gameLinkCopied ? 'Copied!' : 'Copy to Clipboard'}
+        {gameLinkCopied ? 'Copied!' : 'Copy Link'}
+      </button>
+      <button onClick={copyGameIdToClipboard}>
+      <img src={gameIdCopied ? copied : clipboard} alt="" />
+        {gameIdCopied ? 'Copied!' : 'Copy GameId'}
       </button>
     </div>
   );

@@ -9,8 +9,10 @@ import Home from './pages/Home';
 import Sidebar from './pages/Sidebar';
 import Theme from './pages/Theme';
 import Blog from './pages/Blog';
+import ProfileSearch from './pages/ProfileSearch';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import JoinSection from './pages/JoinSection';
 import './pages/Home.css';
 import './App.css';
 /*
@@ -73,15 +75,19 @@ function App() {
         <Switch>
           
           <Route path = "/" exact>
-            <Home />
+            <Home handleMenuItemClick={handleMenuItemClick}/>
           </Route>
           <Route path = "/play" >
             <Onboard setUserName = {setUserName}/>
+          </Route>
+          <Route path = "/join" >
+            <JoinSection />
           </Route>
           <Route path="/theme" >
             <Theme selectedTheme={selectedTheme} handleThemeChange={handleThemeChange}></Theme>
           </Route>
           <Route path="/blog" component={Blog} />
+          <Route path="/players" component={ProfileSearch} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" exact component={Login} />
           <Route path = "/game/:gameid" exact>

@@ -35,10 +35,10 @@ const JoinRoom = (props) => {
                     <ChessGame myUserName={inputText} />
                 </React.Fragment>
             ) : (
-                <form className='Play_screen' onSubmit={handleSubmit}>
+                <form className='Play_screen' style={{width:"100%"}} onSubmit={handleSubmit}>
                         <div className='Play_container'>
 
-                            <h1> Your Username: </h1>
+                            <h1>To Join Enter Your Username: </h1>
                             <input
                                 ref={textArea}
                                 onInput={typingUserName}
