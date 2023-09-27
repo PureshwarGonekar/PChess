@@ -20,6 +20,7 @@ Welcome to Pchess, an online chess platform that allows users to play chess onli
 - **User Authentication**: Pchess offers user login and sign-up functionality, although the authentication part is not yet implemented.
 
 ## Snapshots
+![Screenshot (163)](https://github.com/PureshwarGonekar/PChess/assets/88015818/659abcd5-26bf-4bc9-b1a2-69d798d3855f)
 ![Screenshot (164)](https://github.com/PureshwarGonekar/PChess/assets/88015818/a6a9e7a3-f6a3-40cf-ab65-4f301b3ff0e6)
 ![Screenshot (165)](https://github.com/PureshwarGonekar/PChess/assets/88015818/a39349e6-ec71-4aa5-9995-ba2d24eec0dc)
 ![Screenshot (166)](https://github.com/PureshwarGonekar/PChess/assets/88015818/e85dd5d0-efc0-4b23-a161-1d358cd05432)
@@ -30,7 +31,6 @@ Welcome to Pchess, an online chess platform that allows users to play chess onli
 ![Screenshot (171)](https://github.com/PureshwarGonekar/PChess/assets/88015818/422bc877-880e-4678-847b-085d7d44ef26)
 ![Screenshot (172)](https://github.com/PureshwarGonekar/PChess/assets/88015818/ec3d0f05-2129-4a4e-8a5e-02002a79cbc3)
 ![Screenshot (173)](https://github.com/PureshwarGonekar/PChess/assets/88015818/8b80db4d-60af-4da2-aefa-42f514d81f1e)
-![Screenshot (163)](https://github.com/PureshwarGonekar/PChess/assets/88015818/659abcd5-26bf-4bc9-b1a2-69d798d3855f)
 
 
 ## Installation
