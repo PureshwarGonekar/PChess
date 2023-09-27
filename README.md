@@ -34,11 +34,13 @@ To run Pchess locally, follow these steps:
 ## Deployment
 
 - Backend: The project backend is deployed on [Glitch.com](https://glitch.com/) because it supports WebSocket.io connections.
-<br>
-Seperate repository for [backend]()
+<br />
 
 - Frontend: The project frontend is deployed on [Vercel.com](https://vercel.com/).
-<br>
+<br />
+
+Seperate repository for [backend](https://github.com/PureshwarGonekar/pchess_backend)
+<br />
 Seperate repository for [frontend](https://github.com/PureshwarGonekar/pchess_frontend)
 
 ## Usage
