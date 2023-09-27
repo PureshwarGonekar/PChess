@@ -20,6 +20,17 @@ Welcome to Pchess, an online chess platform that allows users to play chess onli
 - **User Authentication**: Pchess offers user login and sign-up functionality, although the authentication part is not yet implemented.
 
 ## Snapshots
+![Screenshot (164)](https://github.com/PureshwarGonekar/PChess/assets/88015818/a6a9e7a3-f6a3-40cf-ab65-4f301b3ff0e6)
+![Screenshot (165)](https://github.com/PureshwarGonekar/PChess/assets/88015818/a39349e6-ec71-4aa5-9995-ba2d24eec0dc)
+![Screenshot (166)](https://github.com/PureshwarGonekar/PChess/assets/88015818/e85dd5d0-efc0-4b23-a161-1d358cd05432)
+![Screenshot (167)](https://github.com/PureshwarGonekar/PChess/assets/88015818/e16afe78-56d4-447d-9762-9c46bfd0c8aa)
+![Screenshot (168)](https://github.com/PureshwarGonekar/PChess/assets/88015818/13da9441-4419-4d11-be23-54fda4a09fe6)
+![Screenshot (169)](https://github.com/PureshwarGonekar/PChess/assets/88015818/54ea1e43-70c4-4d0a-9433-5d1d6120e5d0)
+![Screenshot (170)](https://github.com/PureshwarGonekar/PChess/assets/88015818/9ca5c5be-e7f0-4c44-815b-2309c5ae99f4)
+![Screenshot (171)](https://github.com/PureshwarGonekar/PChess/assets/88015818/422bc877-880e-4678-847b-085d7d44ef26)
+![Screenshot (172)](https://github.com/PureshwarGonekar/PChess/assets/88015818/ec3d0f05-2129-4a4e-8a5e-02002a79cbc3)
+![Screenshot (173)](https://github.com/PureshwarGonekar/PChess/assets/88015818/8b80db4d-60af-4da2-aefa-42f514d81f1e)
+![Screenshot (163)](https://github.com/PureshwarGonekar/PChess/assets/88015818/659abcd5-26bf-4bc9-b1a2-69d798d3855f)
 
 
 ## Installation
@@ -34,8 +45,6 @@ To run Pchess locally, follow these steps:
 ## Deployment
 
 - Backend: The project backend is deployed on [Glitch.com](https://glitch.com/) because it supports WebSocket.io connections.
-<br />
-
 - Frontend: The project frontend is deployed on [Vercel.com](https://vercel.com/).
 <br />
 
